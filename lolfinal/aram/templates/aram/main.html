@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html ng-app="leagueARAM">
 <head>
@@ -8,107 +9,35 @@
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="hellastyle.css">
+	<link rel="stylesheet" href="{% static "aram/css/hellastyle.css" %}">
 	<!-- Latest compiled and minified JavaScript -->
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header navbar-left">
-				<ul class="nav navbar-nav">
-					<li> <a href="#">ARAM Predictor</a></li>
-					<li> <a href="#">Profile</a></li>
-					<li> <a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="container-fluid navbar-header navbar-right">
-				<ul class="nav navbar-nav">
-					<li><div class="container-fluid"> 
-							<input type="text" placeholder="Summoner Name">
-							<span>
-								<button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Region <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu dropdown-menu-right">
-									<li>
-										<a href="#">NA</a>
-									</li>
-									<li>
-										<a href="#">EU</a>
-									</li>
-									<li>
-										<a href="#">CHINA</a>
-									</li>
-								</ul>
-							</span>
-						</div>
-					</li>
-					<li> <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Go!</button></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div>
-		<img id="banner" src = "assets/lol-banner.png">
-	</div>
-	<div class="container-fluid" id="main-profile">
-		<div class="row">
-			<div class="col-sm-12 col-md-7 dataBox">
-				<div class="container-fluid">
-					<div class="row">
-						<h2>5v5 Stats</h2>
-						<table class="table">
-							<thead>
-							</thead>
-							<tr>
-								<td>Wins</td>
-								<td>500</td>
-							</tr>
-							<tr>
-								<td>Kills</td>
-								<td>23</td>
-							</tr>
-						</table>
-					</div>
-					<div class="row">
-						<h2>3v3 Stats</h2>
-						<table class="table">
-							<thead>
-							</thead>
-							<tr>
-								<td>Wins</td>
-								<td>500</td>
-							</tr>
-							<tr>
-								<td>Kills</td>
-								<td>23</td>
-							</tr>
-					</table>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-1">
-			</div>
-			<div class="col-sm-12 col-md-4 dataBox" ng-controller="listChampions">
-				<ul>
-					<li ng-repeat="champ in MC.champs.data | filter:query" class="champBox">{{ champ.name }}
-					</li>
-					<li class="champBox">
-						<span>
-							<img class="champImage" src="http://ddragon.leagueoflegends.com/cdn/5.10.1/img/champion/Ezreal.png"></span>
-						<span><a class="champLink" href="http://gameinfo.na.leagueoflegends.com/en/game-info/champions/aatrox/">Champ</a></span>
-					</li>
-					<li class="champBox">Champ</li>
-				</ul>
-			</div>
-		</div>
+
+
+<!-- Angular!! -->
+	<div ng-view>
 	</div>
 
+<!-- Scripts!! -->
 <footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-route.min.js"></script>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src = 'javabitches.js'> </script>
-	<p>&copy; 2015 Drewsoft Inc.
+	<script src = '{% static "aram/app.js" %}'> </script>
+	<script src = '{% static "aram/js/ListChampionsController.js" %}'> </script>
+	<script src = '{% static "aram/js/ARAMController.js" %}'> </script>
+	<script src = '{% static "aram/js/HeroListFactory.js" %}'> </script>
+	<script src='{% static "aram/js/PlayerStatsFactory.js" %}'></script>
+	<script src='{% static "aram/js/getIDService.js" %}'></script>
+	<script src='{% static "aram/js/StaticHeroesFactory.js" %}'></script>
+	<script src='{% static "aram/js/StaticEnemiesFactory.js" %}'></script>
+	<script src='{% static "aram/js/StaticESumFactory.js" %}'></script>
+	<script src='{% static "aram/js/StaticFSumFactory.js" %}'></script>
+
+
+	<p id="copyright">&copy; 2015 Drewsoft Inc.
 </footer>
 </body>
 </html>

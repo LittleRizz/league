@@ -26,6 +26,10 @@
 	color: yellow;
 }
 
+.statHeading{
+	color: #EAE5EE;
+}
+
 body {
 	background-color: #0E0E0E;
 }
@@ -42,4 +46,11 @@ body {
 
 #main-profile {
 	padding: 10px;
+}
+
+a {
+	color: #FFDD1D;
+}
+a:hover{
+	color: #FFFF0B;
 }
